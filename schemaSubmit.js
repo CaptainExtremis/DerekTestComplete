@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import { JsonForms } from '@jsonforms/react';
-import { rankWith, scopeEndsWith } from '@jsonforms/core';
 
-export default rankWith(
-    3,
-    scopeEndsWith('rating')
-  );
-
-export function myComponent() {
+export function schemaSubmit() {
     const [data, setData] = useState();
 
     useEffect(() => {
@@ -19,8 +13,7 @@ export function myComponent() {
     if(!data) {
         return null;
     }
-    
-    return <Form1 jsonSchema={data} />
+    return <Form1 jsonSchema={data}, Form2 jsonSchema={data} />
 }
 
 export function Form1({ jsonSchema }) {
