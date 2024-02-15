@@ -3,7 +3,7 @@ import { JsonForms } from '@jsonforms/react';
 import { rankWith, scopeEndsWith } from '@jsonforms/core';
 
 export default rankWith(
-    3, //increase rank as needed
+    3,
     scopeEndsWith('rating')
   );
 
@@ -24,6 +24,18 @@ export function myComponent() {
 }
 
 export function Form1({ jsonSchema }) {
+    const { fields, validationSchema } = JSONForms(jsonSchema);
+    const handleSubmit = (values) => {};
+
+    return (
+        <DynamicForm
+        fields={fields}
+        validationSchema={validationSchema}
+        handleOnSubmit={handleSubmit}
+        />
+    );
+
+export function Form2({ jsonSchema }) {
     const { fields, validationSchema } = JSONForms(jsonSchema);
     const handleSubmit = (values) => {};
 
